@@ -1,1 +1,2 @@
 Text from person1.
+New text from person2
