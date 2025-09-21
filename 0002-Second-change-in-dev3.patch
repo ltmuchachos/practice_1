@@ -1,0 +1,20 @@
+From b697229a22226af2dc886a7a296a50b2f50a7ad8 Mon Sep 17 00:00:00 2001
+From: ltmuchachos <ltmuchachos@gmail.com>
+Date: Sun, 21 Sep 2025 19:39:19 +0300
+Subject: [PATCH 2/3] Second change in dev3
+
+---
+ file2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..6b56bc4
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++Change 2
+-- 
+2.15.0
+
