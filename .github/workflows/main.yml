@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master, development, dev, dev1, dev2, dev3, release ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, release ]
 
 permissions:
   contents: write
