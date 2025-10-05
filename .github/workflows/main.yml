@@ -23,3 +23,15 @@ jobs:
     - name: Запуск тестов
       run: pytest -v
 
+  auto_merge:
+    name: Автоматическое слияние PR
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+    - name: Слияние Pull Request после успешных тестов
+      uses: pascalgn/automerge-action@v0.15.6
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
