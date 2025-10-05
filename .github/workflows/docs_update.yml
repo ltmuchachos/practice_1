@@ -1,0 +1,44 @@
+name: Автоматическое обновление документации
+
+on:
+  push:
+    branches:
+      - master
+      - development
+      - release
+      - dev
+      - dev1
+      - dev2
+      - dev3
+    paths:
+      - '**.py'
+      - 'README.md'
+      - 'docs/**'
+
+permissions:
+  contents: write
+
+jobs:
+  update_docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Клонирование репозитория
+        uses: actions/checkout@v3
+
+      - name: Обновление автоматической документации
+        run: |
+          mkdir -p docs
+          echo "# Автоматически сгенерированная документация" > docs/AUTO_DOCS.md
+          echo "Дата обновления: $(date)" >> docs/AUTO_DOCS.md
+          echo "" >> docs/AUTO_DOCS.md
+          echo "Список файлов:" >> docs/AUTO_DOCS.md
+          ls -R >> docs/AUTO_DOCS.md
+
+      - name: Коммит и пуш обновлений
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/AUTO_DOCS.md
+          git commit -m "Auto-update docs [skip ci]" || echo "Нет изменений в документации"
+          git push
