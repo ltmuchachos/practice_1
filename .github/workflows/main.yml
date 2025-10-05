@@ -33,4 +33,5 @@ jobs:
 
       - name: Запуск тестов
         run: |
+          cd practice_1
           pytest -v
