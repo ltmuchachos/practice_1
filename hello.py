@@ -5,3 +5,5 @@ print("Goodbye!")
 
 print("Practice CI/CD")
 print("Add auto-merge CI/CD")
+
+print("Checking for automatic documentation updates")
